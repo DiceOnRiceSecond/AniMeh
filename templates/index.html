@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anime Scraper</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+      color: #333;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border: 2px solid #007bff;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #ff6f61;
+      box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .anime-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ddd;
+      padding: 15px 20px;
+      margin: 10px 0;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      transition: all 0.3s ease;
+    }
+
+    .anime-card a {
+      text-decoration: none;
+      color: #ff6f61;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .anime-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      input[type="text"], button, .anime-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Clean Anime Search</h1>
+  <form method="POST">
+    <input type="text" name="query" placeholder="Search anime..." required>
+    <button type="submit">Search</button>
+  </form>
+
+  {% if anime_list %}
+    <h2>Results:</h2>
+    {% for anime in anime_list %}
+      <div class="anime-card">
+        <a href="{{ anime.link }}" target="_blank">{{ anime.title }}</a>
+      </div>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>
