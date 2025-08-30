@@ -18,5 +18,5 @@ git init
 git add .
 git commit -m "first deploy"
 git branch -M main
-git remote add origin https://github.com/DiceOnRiceSecond/my-anime-app.git
+git remote add origin https://github.com/DiceOnRiceSecond/AniMeh.git
 git push -u origin main
