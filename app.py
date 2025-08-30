@@ -14,4 +14,9 @@ def index():
 # Only needed for local testing
 # if __name__ == "__main__":
 #     app.run()
-
+git init
+git add .
+git commit -m "first deploy"
+git branch -M main
+git remote add origin https://github.com/DiceOnRiceSecond/my-anime-app.git
+git push -u origin main
